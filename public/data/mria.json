@@ -1,0 +1,149 @@
+{
+  "slug": "mria",
+  "brand": {
+    "name": "MRIA",
+    "subtitle": "LOUNGE & KITCHEN"
+  },
+  "defaultMenuSection": "bar",
+  "landing": {
+    "schedule": [
+      "ЕЖЕДНЕВНО: с 11:00 до 00:00"
+    ],
+    "phone": {
+      "display": "+7 900 123-45-67",
+      "tel": "+79001234567"
+    },
+    "instagram": {
+      "handle": "mria.lounge",
+      "url": "https://instagram.com/mria.lounge"
+    },
+    "address": {
+      "text": "Ялта, наб. Ленина 5",
+      "mapUrl": "https://yandex.ru/maps/?text=Ялта%2C%20наб.%20Ленина%205"
+    },
+    "amenities": ["wifi", "hookah", "cocktail"]
+  },
+  "bottomNav": [
+    { "id": "home", "label": "Главная", "type": "home" },
+    { "id": "bar", "label": "Бар", "type": "menu", "section": "bar" },
+    { "id": "hookah", "label": "Кальяны", "type": "menu", "section": "hookah" },
+    { "id": "desserts", "label": "Десерты", "type": "menu", "section": "desserts" }
+  ],
+  "menu": {
+    "sections": [
+      {
+        "id": "bar",
+        "label": "Бар",
+        "categories": [
+          {
+            "id": "cocktails",
+            "label": "Коктейли",
+            "icon": "cocktail",
+            "groups": [
+              {
+                "id": "signature",
+                "label": "Авторские коктейли",
+                "items": [
+                  {
+                    "id": "mria-sunset",
+                    "name": "Mria Sunset",
+                    "price": 590,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg",
+                    "isNew": true
+                  },
+                  {
+                    "id": "black-sea",
+                    "name": "Чёрное море",
+                    "price": 560,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "coffee",
+            "label": "Кофе",
+            "icon": "coffee",
+            "groups": [
+              {
+                "id": "coffee-hot",
+                "label": "Горячие напитки",
+                "items": [
+                  {
+                    "id": "cappuccino",
+                    "name": "Капучино",
+                    "price": 280,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  },
+                  {
+                    "id": "latte",
+                    "name": "Латте",
+                    "price": 300,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hookah",
+        "label": "Кальяны",
+        "categories": [
+          {
+            "id": "classic",
+            "label": "Классика",
+            "icon": "hookah",
+            "groups": [
+              {
+                "id": "hookah-list",
+                "label": "Кальяны",
+                "items": [
+                  {
+                    "id": "mria-mix",
+                    "name": "Mria Mix",
+                    "price": 1100,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "desserts",
+        "label": "Десерты",
+        "categories": [
+          {
+            "id": "cakes",
+            "label": "Десерты",
+            "icon": "dessert",
+            "groups": [
+              {
+                "id": "desserts-list",
+                "label": "Десерты",
+                "items": [
+                  {
+                    "id": "honey-cake",
+                    "name": "Медовик",
+                    "price": 380,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

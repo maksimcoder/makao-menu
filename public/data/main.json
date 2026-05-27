@@ -1,0 +1,291 @@
+{
+  "slug": "main",
+  "brand": {
+    "name": "ZAMNA",
+    "subtitle": "LOUNGE-BAR"
+  },
+  "defaultMenuSection": "bar",
+  "landing": {
+    "schedule": [
+      "ПТ-СБ: с 12:00 до 03:00",
+      "ВС-ЧТ: с 12:00 до 02:00"
+    ],
+    "phone": {
+      "display": "+7 978 020-12-12",
+      "tel": "+79780201212"
+    },
+    "instagram": {
+      "handle": "zamna.simf",
+      "url": "https://instagram.com/zamna.simf"
+    },
+    "address": {
+      "text": "Симферополь, ул. Серова 12",
+      "mapUrl": "https://yandex.ru/maps/?text=Симферополь%2C%20ул.%20Серова%2012"
+    },
+    "amenities": ["wifi", "hookah", "cocktail", "pc", "gamepad"]
+  },
+  "bottomNav": [
+    { "id": "home", "label": "Главная", "type": "home" },
+    { "id": "bar", "label": "Бар", "type": "menu", "section": "bar" },
+    { "id": "hookah", "label": "Кальяны", "type": "menu", "section": "hookah" },
+    { "id": "desserts", "label": "Десерты", "type": "menu", "section": "desserts" },
+    { "id": "buk", "label": "Доставка #1", "type": "delivery", "url": "https://example.com/buk", "logo": "/images/delivery-buk.svg" },
+    { "id": "gnezdo", "label": "Доставка #2", "type": "delivery", "url": "https://example.com/gnezdo", "logo": "/images/delivery-gnezdo.svg" }
+  ],
+  "deliveryLinks": [
+    { "id": "buk", "label": "Доставка #1", "url": "https://example.com/buk", "logo": "/images/delivery-buk.svg" },
+    { "id": "gnezdo", "label": "Доставка #2", "url": "https://example.com/gnezdo", "logo": "/images/delivery-gnezdo.svg" }
+  ],
+  "menu": {
+    "sections": [
+      {
+        "id": "bar",
+        "label": "Бар",
+        "categories": [
+          {
+            "id": "cocktails",
+            "label": "Коктейли",
+            "icon": "cocktail",
+            "groups": [
+              {
+                "id": "non-alc",
+                "label": "Безалкогольные коктейли",
+                "items": [
+                  {
+                    "id": "white-russian-na",
+                    "name": "Белый русский б/а",
+                    "price": 540,
+                    "currency": "руб.",
+                    "image": "https://optim.tildacdn.com/tild3535-3533-4033-b066-313539353166/-/resize/598x/-/format/webp/__.JPG.webp",
+                    "isNew": true
+                  },
+                  {
+                    "id": "mojito-na",
+                    "name": "Мохито б/а",
+                    "price": 480,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  }
+                ]
+              },
+              {
+                "id": "alc-cocktails",
+                "label": "Алкогольные коктейли",
+                "items": [
+                  {
+                    "id": "negroni",
+                    "name": "Негрони",
+                    "price": 620,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  },
+                  {
+                    "id": "old-fashioned",
+                    "name": "Олд фэшн",
+                    "price": 650,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "lemonades",
+            "label": "Лимонады",
+            "icon": "lemonade",
+            "groups": [
+              {
+                "id": "lemonades-all",
+                "label": "Лимонады",
+                "items": [
+                  {
+                    "id": "berry-lemonade",
+                    "name": "Ягодный лимонад",
+                    "price": 390,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  },
+                  {
+                    "id": "citrus-lemonade",
+                    "name": "Цитрусовый лимонад",
+                    "price": 390,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "wines",
+            "label": "Вина",
+            "icon": "wine",
+            "groups": [
+              {
+                "id": "wines-red",
+                "label": "Красные вина",
+                "items": [
+                  {
+                    "id": "cabernet-glass",
+                    "name": "Каберне Совиньон (бокал)",
+                    "price": 450,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "whiskey",
+            "label": "Виски",
+            "icon": "whiskey",
+            "groups": [
+              {
+                "id": "whiskey-single",
+                "label": "Виски",
+                "items": [
+                  {
+                    "id": "jameson",
+                    "name": "Jameson (50 мл)",
+                    "price": 520,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "whiskey",
+            "label": "Виски",
+            "icon": "whiskey",
+            "groups": [
+              {
+                "id": "whiskey-single",
+                "label": "Виски",
+                "items": [
+                  {
+                    "id": "jameson",
+                    "name": "Jameson (50 мл)",
+                    "price": 520,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "whiskey",
+            "label": "Виски",
+            "icon": "whiskey",
+            "groups": [
+              {
+                "id": "whiskey-single",
+                "label": "Виски",
+                "items": [
+                  {
+                    "id": "jameson",
+                    "name": "Jameson (50 мл)",
+                    "price": 520,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hookah",
+        "label": "Кальяны",
+        "categories": [
+          {
+            "id": "classic",
+            "label": "Классика",
+            "icon": "hookah",
+            "groups": [
+              {
+                "id": "hookah-classic",
+                "label": "Кальяны",
+                "items": [
+                  {
+                    "id": "double-apple",
+                    "name": "Двойное яблоко",
+                    "price": 1200,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  },
+                  {
+                    "id": "grape-mint",
+                    "name": "Виноград с мятой",
+                    "price": 1200,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg",
+                    "isNew": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "premium",
+            "label": "Премиум",
+            "icon": "hookah",
+            "groups": [
+              {
+                "id": "hookah-premium",
+                "label": "Премиум миксы",
+                "items": [
+                  {
+                    "id": "tropical",
+                    "name": "Тропический микс",
+                    "price": 1500,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "desserts",
+        "label": "Десерты",
+        "categories": [
+          {
+            "id": "cakes",
+            "label": "Десерты",
+            "icon": "dessert",
+            "groups": [
+              {
+                "id": "desserts-all",
+                "label": "Десерты",
+                "items": [
+                  {
+                    "id": "cheesecake",
+                    "name": "Чизкейк",
+                    "price": 420,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  },
+                  {
+                    "id": "tiramisu",
+                    "name": "Тирамису",
+                    "price": 450,
+                    "currency": "руб.",
+                    "image": "/images/placeholder-drink.svg"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
