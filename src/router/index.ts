@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/HomeView.vue'
 import LandingView from '../views/LandingView.vue'
 import MenuView from '../views/MenuView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
@@ -8,7 +9,20 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/main',
+      name: 'home',
+      component: HomeView,
+    },
+    {
+      path: '/mria',
+      name: 'mria-landing',
+      component: LandingView,
+      props: { establishment: 'mria' },
+    },
+    {
+      path: '/mria/menu',
+      name: 'mria-menu',
+      component: MenuView,
+      props: { establishment: 'mria' },
     },
     {
       path: '/:establishment',

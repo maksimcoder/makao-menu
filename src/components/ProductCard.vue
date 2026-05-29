@@ -75,7 +75,7 @@ defineProps<{
 }
 
 .product-card__image-wrap {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 3;
   overflow: hidden;
   background: #0a0605;
 }

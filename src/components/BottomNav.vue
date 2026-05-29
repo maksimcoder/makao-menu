@@ -147,6 +147,10 @@ const mergedNav = computed(() => {
   color: var(--color-text);
 }
 
+.bottom-nav__item--active svg {
+  stroke: rgb(190, 137, 74);
+}
+
 .bottom-nav__icon-wrap {
   display: flex;
   align-items: center;

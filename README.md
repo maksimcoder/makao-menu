@@ -13,6 +13,32 @@
 
 На десктопе (ширина ≥ 768px) показывается заглушка с QR-кодом текущего URL.
 
+## Contentful (CMS)
+
+Интеграция через [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/) (`contentful` SDK, `src/lib/contentful/`).
+
+### Куда вставить ключи из админки
+
+1. Скопируйте шаблон: `cp .env.example .env.local`
+2. Заполните переменные (после изменения `.env.local` перезапустите `npm run dev`):
+
+| Переменная | Где взять в Contentful |
+|------------|-------------------------|
+| `VITE_CONTENTFUL_SPACE_ID` | **Settings → General settings → Space ID** |
+| `VITE_CONTENTFUL_DELIVERY_TOKEN` | **Settings → Content delivery / preview tokens** → токен с типом *Content Delivery API* (не Preview) |
+| `VITE_CONTENTFUL_ENVIRONMENT` | **Settings → Environments** — обычно `master` |
+| `VITE_CONTENTFUL_HOST` | Только для EU: `cdn.eu.contentful.com` |
+
+Идентификаторы content model (`main-page`, поле `restaurant`, `include`) — константы в `src/lib/contentful/api.ts`, не в `.env`.
+
+3. Опубликуйте `main-page` и связанные `restaurant` entries.
+
+Запрос на главной (`/`, `HomeView`) — **один** вызов `getEntries` с `include`: Contentful отдаёт связанные entries в `includes.Entry`, SDK подставляет их в `fields.restaurant`. Карточки заведений ведут на `/{slug}`.
+
+Альтернатива (все рестораны space, не только с главной): `getEntries({ content_type: 'restaurant' })`. Только выбранные ссылки — через страницу + `include`, как выше.
+
+> Delivery token попадает в клиентский бандл — используйте только read-only CDA token с доступом к нужному environment.
+
 ## Разработка
 
 ```bash

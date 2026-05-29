@@ -10,7 +10,7 @@ const router = useRouter()
     <div class="not-found">
       <h1>404</h1>
       <p>Страница не найдена</p>
-      <button type="button" class="not-found__btn" @click="router.push('/main')">
+      <button type="button" class="not-found__btn" @click="router.push('/')">
         На главную
       </button>
     </div>
