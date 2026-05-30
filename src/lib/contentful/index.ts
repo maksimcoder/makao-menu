@@ -20,3 +20,8 @@ export {
   buildThumbnailUrl,
   type RestaurantSummary,
 } from './restaurants'
+export {
+  buildContentfulImageUrl,
+  toProxiedImageUrl,
+  type ContentfulImageOptions,
+} from './imageProxy'

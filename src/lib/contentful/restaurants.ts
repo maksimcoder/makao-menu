@@ -1,5 +1,6 @@
 import type { Asset, Entry } from 'contentful'
 import type { ContentfulAnyEntrySkeleton } from './api'
+import { buildContentfulImageUrl } from './imageProxy'
 
 export type RestaurantSummary = {
   id: string
@@ -28,12 +29,12 @@ function normalizeAssetUrl(url: string | undefined): string | null {
  * @see https://www.contentful.com/developers/docs/references/images-api/
  */
 export function buildThumbnailUrl(url: string, width = 240): string {
-  const u = new URL(url)
-  u.searchParams.set('w', String(width))
-  u.searchParams.set('fm', 'webp')
-  u.searchParams.set('q', '80')
-  u.searchParams.set('fit', 'fill')
-  return u.toString()
+  return buildContentfulImageUrl(url, {
+    width,
+    format: 'webp',
+    quality: 80,
+    fit: 'fill',
+  })
 }
 
 function asString(value: unknown): string {
