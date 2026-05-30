@@ -4,9 +4,9 @@ const ALLOWED_HOSTS = new Set([
 ])
 
 export async function proxyContentfulImage(
-  request: Request,
   upstreamHost: string,
   assetPath: string,
+  search = '',
 ): Promise<Response> {
   if (!ALLOWED_HOSTS.has(upstreamHost)) {
     return new Response('Forbidden', { status: 403 })
@@ -18,7 +18,6 @@ export async function proxyContentfulImage(
     return new Response('Forbidden', { status: 403 })
   }
 
-  const { search } = new URL(request.url)
   const target = `https://${upstreamHost}${assetPath}${search}`
 
   const upstream = await fetch(target, {
@@ -39,11 +38,4 @@ export async function proxyContentfulImage(
       'CDN-Cache-Control': 'public, max-age=31536000, immutable',
     },
   })
-}
-
-export function extractAssetPath(request: Request, routePrefix: string): string {
-  const url = new URL(request.url)
-  const escaped = routePrefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  const match = url.pathname.match(new RegExp(`^${escaped}/(.*)`))
-  return '/' + (match?.[1] ?? '')
 }
