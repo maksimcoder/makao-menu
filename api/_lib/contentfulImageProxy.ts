@@ -3,6 +3,25 @@ const ALLOWED_HOSTS = new Set([
   'images.eu.ctfassets.net',
 ])
 
+export async function proxyContentfulImageFromUrl(
+  request: Request,
+): Promise<Response> {
+  const url = new URL(request.url)
+  const isEu = url.pathname.startsWith('/cdn-eu/')
+  const isUs = url.pathname.startsWith('/cdn/')
+
+  if (!isEu && !isUs) {
+    return new Response('Not found', { status: 404 })
+  }
+
+  const upstreamHost = isEu
+    ? 'images.eu.ctfassets.net'
+    : 'images.ctfassets.net'
+  const assetPath = url.pathname.replace(/^\/cdn-eu/, '').replace(/^\/cdn/, '')
+
+  return proxyContentfulImage(upstreamHost, assetPath, url.search)
+}
+
 export async function proxyContentfulImage(
   upstreamHost: string,
   assetPath: string,
