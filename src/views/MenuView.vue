@@ -6,7 +6,7 @@ import BrandHeader from '../components/BrandHeader.vue'
 import CategoryNav from '../components/CategoryNav.vue'
 import ProductList from '../components/ProductList.vue'
 import BottomNav from '../components/BottomNav.vue'
-import { useEstablishment } from '../composables/useEstablishment'
+import { useRestaurantMenu } from '../composables/useRestaurantMenu'
 import { getMenuCategory, getMenuSection } from '../utils/menu'
 
 const props = defineProps<{
@@ -15,7 +15,9 @@ const props = defineProps<{
 
 const route = useRoute()
 const router = useRouter()
-const { data, loading, error } = useEstablishment(toRef(props, 'establishment'))
+const { data, loading, error, disabled } = useRestaurantMenu(
+  toRef(props, 'establishment'),
+)
 const categoryNavRef = ref<InstanceType<typeof CategoryNav> | null>(null)
 
 const sectionId = computed(() => route.query.section as string | undefined)
@@ -82,8 +84,11 @@ watch(
 
 <template>
   <AppShell with-bottom-nav>
-    <div v-if="loading" class="state">Загрузка…</div>
-    <div v-else-if="error || !data" class="state">{{ error ?? 'Заведение не найдено' }}</div>
+    <div v-if="disabled" class="state">
+      Contentful не настроен — добавьте ключи в <code>.env.local</code>.
+    </div>
+    <div v-else-if="loading" class="state">Загрузка…</div>
+    <div v-else-if="error || !data" class="state">{{ error ?? 'Меню не найдено' }}</div>
     <template v-else>
       <BrandHeader
         :name="data.brand.name"
@@ -113,5 +118,12 @@ watch(
   padding: 3rem 1.5rem;
   text-align: center;
   color: var(--color-text-muted);
+}
+
+.state code {
+  font-size: 0.8rem;
+  background: var(--color-bg-elevated);
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.25rem;
 }
 </style>

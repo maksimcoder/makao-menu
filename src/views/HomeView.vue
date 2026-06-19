@@ -12,8 +12,6 @@ const { loading, error, disabled, data } = useMainPageRestaurants()
     <BrandHeader name="Makao" subtitle="Выберите заведение" />
 
     <main class="home">
-      <h1 v-if="data?.pageTitle" class="home__title">{{ data.pageTitle }}</h1>
-
       <p v-if="disabled" class="home__state">
         Contentful не настроен — добавьте ключи в <code>.env.local</code>.
       </p>
@@ -23,7 +21,7 @@ const { loading, error, disabled, data } = useMainPageRestaurants()
         v-else-if="data && data.restaurants.length === 0"
         class="home__state"
       >
-        Нет опубликованных заведений.
+        Список заведений сейчас недоступен. Отсканируйте QR код на столе чтобы увидеть меню.
       </p>
 
       <ul v-if="data?.restaurants.length" class="home__list">

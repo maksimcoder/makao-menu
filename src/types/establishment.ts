@@ -1,4 +1,4 @@
-export type AmenityId = 'wifi' | 'hookah' | 'cocktail' | 'pc' | 'gamepad'
+export type AmenityId = 'wifi' | 'hookah' | 'cocktail' | 'food' | 'pc' | 'gamepad'
 
 export type CategoryIconId =
   | 'cocktail'
@@ -42,6 +42,7 @@ export interface LandingData {
 export interface MenuItem {
   id: string
   name: string
+  description?: string
   price: number
   currency: string
   image: string

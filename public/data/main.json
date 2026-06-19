@@ -1,7 +1,7 @@
 {
   "slug": "main",
   "brand": {
-    "name": "ZAMNA",
+    "name": "Makao",
     "subtitle": "LOUNGE-BAR"
   },
   "defaultMenuSection": "bar",
@@ -22,7 +22,7 @@
       "text": "Симферополь, ул. Серова 12",
       "mapUrl": "https://yandex.ru/maps/?text=Симферополь%2C%20ул.%20Серова%2012"
     },
-    "amenities": ["wifi", "hookah", "cocktail", "pc", "gamepad"]
+    "amenities": ["wifi", "hookah", "food", "cocktail", "gamepad"]
   },
   "bottomNav": [
     { "id": "home", "label": "Главная", "type": "home" },

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Wifi, Wind, Wine, Mouse, Gamepad2 } from 'lucide-vue-next'
+import { Wifi, Wind, Wine, UtensilsCrossed, Mouse, Gamepad2 } from 'lucide-vue-next'
 import type { AmenityId } from '../types/establishment'
 import type { Component } from 'vue'
 
@@ -11,6 +11,7 @@ const iconMap: Record<AmenityId, Component> = {
   wifi: Wifi,
   hookah: Wind,
   cocktail: Wine,
+  food: UtensilsCrossed,
   pc: Mouse,
   gamepad: Gamepad2,
 }
@@ -19,6 +20,7 @@ const labels: Record<AmenityId, string> = {
   wifi: 'Wi-Fi',
   hookah: 'Кальяны',
   cocktail: 'Бар',
+  food: 'Кухня',
   pc: 'ПК-зона',
   gamepad: 'Игры',
 }

@@ -11,6 +11,9 @@ defineProps<{
     <div class="product-card__info">
       <span v-if="item.isNew" class="product-card__badge">new</span>
       <h3 class="product-card__name">{{ item.name }}</h3>
+      <p v-if="item.description" class="product-card__description">
+        {{ item.description }}
+      </p>
       <p class="product-card__price-label">Цена</p>
       <p class="product-card__price">
         {{ item.price }} {{ item.currency }}
@@ -60,6 +63,14 @@ defineProps<{
   font-size: 1.35rem;
   font-weight: 700;
   padding-right: 3rem;
+}
+
+.product-card__description {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+  font-weight: 400;
 }
 
 .product-card__price-label {

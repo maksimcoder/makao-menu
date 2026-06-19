@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
+
 defineProps<{
   name: string
   subtitle: string
@@ -9,9 +11,15 @@ defineProps<{
 <template>
   <header class="brand-header" :class="{ 'brand-header--compact': compact }">
     <h1 class="brand-header__logo-wrap">
-      <img src="/images/logo.png" :alt="name" class="brand-header__logo" />
+      <RouterLink
+        :to="{ name: 'home' }"
+        class="brand-header__logo-link"
+        aria-label="На главную — список заведений"
+      >
+        <img src="/images/logo.png" :alt="name" class="brand-header__logo" />
+      </RouterLink>
     </h1>
-    <div class="brand-header__subtitle-row">
+    <div v-if="subtitle" class="brand-header__subtitle-row">
       <span class="brand-header__line" />
       <span class="brand-header__subtitle">{{ subtitle }}</span>
       <span class="brand-header__line" />
@@ -32,6 +40,18 @@ defineProps<{
 .brand-header__logo-wrap {
   margin: 0;
   line-height: 0;
+}
+
+.brand-header__logo-link {
+  display: inline-block;
+  line-height: 0;
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+
+.brand-header__logo-link:focus-visible {
+  outline: 2px solid var(--color-gold-dim);
+  outline-offset: 4px;
 }
 
 .brand-header__logo {

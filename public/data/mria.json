@@ -21,7 +21,7 @@
       "text": "Ялта, наб. Ленина 5",
       "mapUrl": "https://yandex.ru/maps/?text=Ялта%2C%20наб.%20Ленина%205"
     },
-    "amenities": ["wifi", "hookah", "cocktail"]
+    "amenities": ["wifi", "hookah", "cocktail", "gamepad"]
   },
   "bottomNav": [
     { "id": "home", "label": "Главная", "type": "home" },

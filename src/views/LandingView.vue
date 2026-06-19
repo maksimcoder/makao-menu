@@ -8,60 +8,64 @@ import MenuButton from '../components/MenuButton.vue'
 import InfoRow from '../components/InfoRow.vue'
 import AmenityIcons from '../components/AmenityIcons.vue'
 import { useEstablishment } from '../composables/useEstablishment'
-import { getDefaultMenuQuery } from '../utils/menu'
+import { useRestaurantPage } from '../composables/useRestaurantPage'
 
 const props = defineProps<{
   establishment: string
 }>()
 
 const router = useRouter()
-const { data, loading, error } = useEstablishment(toRef(props, 'establishment'))
+const { data, loading, error, disabled } = useRestaurantPage(toRef(props, 'establishment'))
+const { data: establishment } = useEstablishment(toRef(props, 'establishment'))
 
 const goToMenu = () => {
-  if (!data.value) return
-  const query = getDefaultMenuQuery(data.value)
   router.push({
     name: 'menu',
     params: { establishment: props.establishment },
-    query,
   })
 }
 </script>
 
 <template>
   <AppShell>
-    <div v-if="loading" class="state">Загрузка…</div>
+    <div v-if="disabled" class="state">
+      Contentful не настроен — добавьте ключи в <code>.env.local</code>.
+    </div>
+    <div v-else-if="loading" class="state">Загрузка…</div>
     <div v-else-if="error || !data" class="state">{{ error ?? 'Заведение не найдено' }}</div>
     <template v-else>
-      <BrandHeader :name="data.brand.name" :subtitle="data.brand.subtitle" />
+      <BrandHeader :name="data.title" subtitle="" />
       <MenuButton @click="goToMenu" />
       <section class="landing-info">
         <InfoRow label="Режим работы" :icon="Clock">
-          <p v-for="(line, i) in data.landing.schedule" :key="i">{{ line }}</p>
+          <p v-for="(line, i) in data.schedule" :key="i">{{ line }}</p>
         </InfoRow>
         <InfoRow
           label="Телефон для брони"
           :icon="Phone"
-          :href="`tel:${data.landing.phone.tel}`"
+          :href="data.phone.tel ? `tel:${data.phone.tel}` : undefined"
         >
-          <p>{{ data.landing.phone.display }}</p>
+          <p>{{ data.phone.display }}</p>
         </InfoRow>
         <InfoRow
           label="Instagram"
           :icon="Instagram"
-          :href="data.landing.instagram.url"
+          :href="data.instagram.url || undefined"
         >
-          <p>{{ data.landing.instagram.handle }}</p>
+          <p>{{ data.instagram.handle }}</p>
         </InfoRow>
         <InfoRow
           label="Адрес"
           :icon="MapPin"
-          :href="data.landing.address.mapUrl"
+          :href="data.address.mapUrl || undefined"
         >
-          <p>{{ data.landing.address.text }}</p>
+          <p>{{ data.address.text }}</p>
         </InfoRow>
       </section>
-      <AmenityIcons :amenities="data.landing.amenities" />
+      <AmenityIcons
+        v-if="establishment?.landing.amenities.length"
+        :amenities="establishment.landing.amenities"
+      />
     </template>
   </AppShell>
 </template>
@@ -71,6 +75,13 @@ const goToMenu = () => {
   padding: 3rem 1.5rem;
   text-align: center;
   color: var(--color-text-muted);
+}
+
+.state code {
+  font-size: 0.8rem;
+  background: var(--color-bg-elevated);
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.25rem;
 }
 
 .landing-info {
